@@ -1,0 +1,347 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 30-Jul-2019 às 19:02
+-- Versão do servidor: 10.3.16-MariaDB
+-- versão do PHP: 7.3.7
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `vrp`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vrp_characters`
+--
+
+CREATE TABLE `vrp_characters` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `vrp_characters`
+--
+
+INSERT INTO `vrp_characters` (`id`, `user_id`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vrp_character_business`
+--
+
+CREATE TABLE `vrp_character_business` (
+  `character_id` int(11) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `capital` int(11) DEFAULT NULL,
+  `laundered` int(11) DEFAULT NULL,
+  `reset_timestamp` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vrp_character_data`
+--
+
+CREATE TABLE `vrp_character_data` (
+  `character_id` int(11) NOT NULL,
+  `dkey` varchar(100) NOT NULL,
+  `dvalue` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `vrp_character_data`
+--
+
+INSERT INTO `vrp_character_data` (`character_id`, `dkey`, `dvalue`) VALUES
+(1, 'vRP:datatable', 0x8aad72656e745f76656869636c657390a9696e76656e746f727990a677616c6c6574cc96a462616e6bcd03e8a6766974616c7382a57761746572cb3fe491ba329bb929a4666f6f64cb3fe248dd194ddc9aaf70686f6e655f6469726563746f727990a5737461746587a661726d6f757200ad637573746f6d697a6174696f6ede002fa96f7665726c61793a3594ccff0000cb3ff0000000000000aa6f7665726c61793a313294ccff0000cb3ff0000000000000a670726f703a3692ff00ab6472617761626c653a3136930002ccffa96f7665726c61793a3294ccff0000cb3ff0000000000000ab6472617761626c653a313993ce0202020202ccffa670726f703a3992ff00ab6472617761626c653a323093ce0202020202ccffaa6472617761626c653a3493000002a96f7665726c61793a3694ccff0000cb3ff0000000000000aa6f7665726c61793a313094ccff0000cb3ff0000000000000a670726f703a3892ff00aa6472617761626c653a3193000002a96f7665726c61793a3894ccff0000cb3ff0000000000000aa6f7665726c61793a313194ccff0000cb3ff0000000000000a670726f703a3592ff00ab6472617761626c653a313893ce0202020202ccffa670726f703a3392ff00ab6472617761626c653a3134930002ccffa670726f703a3092ff00aa6472617761626c653a3293000002a670726f703a3292ff00a670726f703a3792ff00aa686169725f636f6c6f72920000ab6472617761626c653a313193000002ab6472617761626c653a313393000200aa6472617761626c653a3393000002a770726f703a313092ff00aa6472617761626c653a3593000002ab6472617761626c653a3137930002ccffa96f7665726c61793a3094ccff0000cb3ff0000000000000ab6472617761626c653a313293000200a670726f703a3192ff00a96f7665726c61793a3794ccff0000cb3ff0000000000000a96f7665726c61793a3194ccff0000cb3ff0000000000000aa6472617761626c653a3093000002a96d6f64656c68617368ce705e61f2aa6472617761626c653a3993000002ab6472617761626c653a313093000002a96f7665726c61793a3394ccff0000cb3ff0000000000000a96f7665726c61793a3494ccff0000cb3ff0000000000000a96f7665726c61793a3994ccff0000cb3ff0000000000000aa6472617761626c653a3793000002ab6472617761626c653a3135930002cce4aa6472617761626c653a3693000002aa6472617761626c653a3893000002a670726f703a3492ff00a66865616c7468ccc8a7776561706f6e7390a768656164696e67cb404228c140000000b0696e5f6f776e65645f76656869636c65c2a8706f736974696f6e83a178cbc083a464c0000000a17acb4042d96f60000000a179cbc068f7e8e0000000a961707469747564657382a8706879736963616c81a8737472656e6774681ea7736369656e636582ab6d617468656d617469637300a96368656d6963616c7300a667726f75707383a561646d696ec3a475736572c3aa737570657261646d696ec3a876656869636c657390),
+(2, 'vRP:datatable', 0x8aa961707469747564657382a7736369656e636582ab6d617468656d617469637300a96368656d6963616c7300a8706879736963616c81a8737472656e6774681ea667726f75707383a475736572c3aa737570657261646d696ec3a561646d696ec3af70686f6e655f6469726563746f727990a462616e6bcd03e8ad72656e745f76656869636c657390a876656869636c657390a9696e76656e746f727990a6766974616c7382a4666f6f64cb3fdcd4e49c08a4fea57761746572cb3fd9a9c9381149daa677616c6c657432a5737461746587a8706f736974696f6e83a17acb400e2a9ee0000000a178cb40904ea720000000a179cb4053081120000000a661726d6f757200a66865616c7468ccc8b0696e5f6f776e65645f76656869636c65c2a7776561706f6e7390a768656164696e67cb405884d400000000ad637573746f6d697a6174696f6ede002fa96f7665726c61793a3894ccff0000cb3ff0000000000000a96d6f64656c68617368ce705e61f2aa686169725f636f6c6f72920000ab6472617761626c653a3134930000ccffa670726f703a3792ff00aa6472617761626c653a3593000000a96f7665726c61793a3794ccff0000cb3ff0000000000000aa6472617761626c653a3393000000a96f7665726c61793a3994ccff0000cb3ff0000000000000aa6472617761626c653a3193000000aa6472617761626c653a3993000000ab6472617761626c653a3137930000ccffaa6f7665726c61793a313294ccff0000cb3ff0000000000000ab6472617761626c653a3139930000ccffa670726f703a3292ff00a96f7665726c61793a3094ccff0000cb3ff0000000000000a96f7665726c61793a3694ccff0000cb3ff0000000000000a670726f703a3192ff00ab6472617761626c653a313593000064ab6472617761626c653a313093000000ab6472617761626c653a313193000000a670726f703a3092ff00ab6472617761626c653a313393000000aa6472617761626c653a3893000000a670726f703a3992ff00a670726f703a3592ff00ab6472617761626c653a313293000000aa6472617761626c653a3093000000aa6f7665726c61793a313094ccff0000cb3ff0000000000000a670726f703a3692ff00a670726f703a3892ff00aa6472617761626c653a3493000000a96f7665726c61793a3394ccff0000cb3ff0000000000000a670726f703a3392ff00a96f7665726c61793a3494ccff0000cb3ff0000000000000a670726f703a3492ff00ab6472617761626c653a3138930000ccffaa6472617761626c653a3293000000a96f7665726c61793a3594ccff0000cb3ff0000000000000a96f7665726c61793a3294ccff0000cb3ff0000000000000aa6472617761626c653a3793000000aa6472617761626c653a3693000000aa6f7665726c61793a313194ccff0000cb3ff0000000000000a96f7665726c61793a3194ccff0000cb3ff0000000000000a770726f703a313092ff00ab6472617761626c653a3230930000ccffab6472617761626c653a3136930000ccff),
+(4, 'vRP:datatable', 0x8aa961707469747564657382a8706879736963616c81a8737472656e6774681ea7736369656e636582ab6d617468656d617469637300a96368656d6963616c7300a667726f75707381a475736572c3af70686f6e655f6469726563746f727990a462616e6bcd03e8ad72656e745f76656869636c657390a876656869636c657390a5737461746587b0696e5f6f776e65645f76656869636c65c2a661726d6f757200a8706f736974696f6e83a17acb4041cbf260000000a178cbc0825323e0000000a179cbc0710c61c0000000a66865616c7468ccc8a7776561706f6e7390a768656164696e67cb407003e340000000ad637573746f6d697a6174696f6ede002fa96f7665726c61793a3894ccff0000cb3ff0000000000000ab6472617761626c653a313093000002aa686169725f636f6c6f72920000ab6472617761626c653a3134930002ccffaa6472617761626c653a3493000002a96f7665726c61793a3694ccff0000cb3ff0000000000000a96f7665726c61793a3794ccff0000cb3ff0000000000000a96f7665726c61793a3294ccff0000cb3ff0000000000000a670726f703a3892ff00aa6472617761626c653a3193000002aa6472617761626c653a3993000002ab6472617761626c653a3137930002ccffaa6f7665726c61793a313294ccff0000cb3ff0000000000000a96f7665726c61793a3594ccff0000cb3ff0000000000000a670726f703a3292ff00a96f7665726c61793a3094ccff0000cb3ff0000000000000aa6472617761626c653a3593000002a670726f703a3192ff00ab6472617761626c653a323093ce0202020202ccffab6472617761626c653a313593000264ab6472617761626c653a313193000002a670726f703a3092ff00ab6472617761626c653a313393000200aa6472617761626c653a3893000002a670726f703a3992ff00a670726f703a3592ff00ab6472617761626c653a313293000200aa6472617761626c653a3093000002aa6f7665726c61793a313094ccff0000cb3ff0000000000000aa6472617761626c653a3393000002a670726f703a3492ff00a96f7665726c61793a3994ccff0000cb3ff0000000000000a96f7665726c61793a3394ccff0000cb3ff0000000000000a670726f703a3692ff00a96f7665726c61793a3494ccff0000cb3ff0000000000000a770726f703a313092ff00ab6472617761626c653a313893ce0202020202ccffaa6472617761626c653a3293000002a96d6f64656c68617368ce705e61f2a96f7665726c61793a3194ccff0000cb3ff0000000000000aa6472617761626c653a3793000002aa6472617761626c653a3693000002aa6f7665726c61793a313194ccff0000cb3ff0000000000000a670726f703a3792ff00a670726f703a3392ff00ab6472617761626c653a313993ce0202020202ccffab6472617761626c653a3136930002ccffa6766974616c7382a57761746572cb3fea7adeb4681f0aa4666f6f64cb3fe53d6f5a340f88a677616c6c6574cc96a9696e76656e746f727990);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vrp_character_homes`
+--
+
+CREATE TABLE `vrp_character_homes` (
+  `character_id` int(11) NOT NULL,
+  `home` varchar(100) DEFAULT NULL,
+  `number` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vrp_character_identities`
+--
+
+CREATE TABLE `vrp_character_identities` (
+  `character_id` int(11) NOT NULL,
+  `registration` varchar(20) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `firstname` varchar(50) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `vrp_character_identities`
+--
+
+INSERT INTO `vrp_character_identities` (`character_id`, `registration`, `phone`, `firstname`, `name`, `age`) VALUES
+(1, '388TEW', '753-0031', 'Stephen', 'Diaz', 28),
+(2, '995DMG', '827-8996', 'Edu', 'Gamer', 66),
+(4, '854JXV', '718-7530', 'Edward', 'Baker', 21);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vrp_global_data`
+--
+
+CREATE TABLE `vrp_global_data` (
+  `dkey` varchar(100) NOT NULL,
+  `dvalue` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vrp_server_data`
+--
+
+CREATE TABLE `vrp_server_data` (
+  `id` varchar(100) NOT NULL,
+  `dkey` varchar(100) NOT NULL,
+  `dvalue` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `vrp_server_data`
+--
+
+INSERT INTO `vrp_server_data` (`id`, `dkey`, `dvalue`) VALUES
+('main', 'vRP:hidden_transformers', 0x83aa57656564206669656c6482a974696d657374616d70ce5d3f4e20a8706f736974696f6e93cb407f571f3ffffffccb40b95fb340000000cb403e6cbe3ffffff5ab5765656420726573616c6582a974696d657374616d70ce5d3f4e20a8706f736974696f6e93cbc08e5306e0000002cbc09186f0e000000bcb40015ff0c0000001af576565642070726f63657373696e6782a974696d657374616d70ce5d3f4e20a8706f736974696f6e93cb4098b7a140000016cb40a6bd5de000000bcb404c777920000001);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vrp_users`
+--
+
+CREATE TABLE `vrp_users` (
+  `id` int(11) NOT NULL,
+  `whitelisted` tinyint(1) DEFAULT NULL,
+  `banned` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `vrp_users`
+--
+
+INSERT INTO `vrp_users` (`id`, `whitelisted`, `banned`) VALUES
+(1, 0, 0),
+(2, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vrp_user_data`
+--
+
+CREATE TABLE `vrp_user_data` (
+  `user_id` int(11) NOT NULL,
+  `dkey` varchar(100) NOT NULL,
+  `dvalue` blob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `vrp_user_data`
+--
+
+INSERT INTO `vrp_user_data` (`user_id`, `dkey`, `dvalue`) VALUES
+(1, 'vRP:datatable', 0x82b163757272656e745f63686172616374657202aa6c6173745f6c6f67696eb331373a32393a33382033302f30372f32303139),
+(2, 'vRP:datatable', 0x82b163757272656e745f63686172616374657204aa6c6173745f6c6f67696eb331373a33303a34372033302f30372f32303139);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vrp_user_ids`
+--
+
+CREATE TABLE `vrp_user_ids` (
+  `identifier` varchar(100) NOT NULL,
+  `user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `vrp_user_ids`
+--
+
+INSERT INTO `vrp_user_ids` (`identifier`, `user_id`) VALUES
+('discord:357901542289833985', 1),
+('license:30e7e1153fa42c7f36ad33a478ef307c8d0aa41e', 1),
+('live:1688853807538266', 1),
+('steam:1100001119c2b5c', 1),
+('xbl:2535447439447581', 1),
+('discord:325786170141179914', 2),
+('license:73afee6af2f88c5ed5769aef26984c4316114bfd', 2),
+('steam:1100001141d72da', 2);
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `vrp_characters`
+--
+ALTER TABLE `vrp_characters`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_characters_users` (`user_id`);
+
+--
+-- Índices para tabela `vrp_character_business`
+--
+ALTER TABLE `vrp_character_business`
+  ADD PRIMARY KEY (`character_id`);
+
+--
+-- Índices para tabela `vrp_character_data`
+--
+ALTER TABLE `vrp_character_data`
+  ADD PRIMARY KEY (`character_id`,`dkey`);
+
+--
+-- Índices para tabela `vrp_character_homes`
+--
+ALTER TABLE `vrp_character_homes`
+  ADD PRIMARY KEY (`character_id`),
+  ADD UNIQUE KEY `home` (`home`,`number`);
+
+--
+-- Índices para tabela `vrp_character_identities`
+--
+ALTER TABLE `vrp_character_identities`
+  ADD PRIMARY KEY (`character_id`),
+  ADD KEY `registration` (`registration`),
+  ADD KEY `phone` (`phone`);
+
+--
+-- Índices para tabela `vrp_global_data`
+--
+ALTER TABLE `vrp_global_data`
+  ADD PRIMARY KEY (`dkey`);
+
+--
+-- Índices para tabela `vrp_server_data`
+--
+ALTER TABLE `vrp_server_data`
+  ADD PRIMARY KEY (`id`,`dkey`);
+
+--
+-- Índices para tabela `vrp_users`
+--
+ALTER TABLE `vrp_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `vrp_user_data`
+--
+ALTER TABLE `vrp_user_data`
+  ADD PRIMARY KEY (`user_id`,`dkey`);
+
+--
+-- Índices para tabela `vrp_user_ids`
+--
+ALTER TABLE `vrp_user_ids`
+  ADD PRIMARY KEY (`identifier`),
+  ADD KEY `fk_user_ids_users` (`user_id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `vrp_characters`
+--
+ALTER TABLE `vrp_characters`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `vrp_users`
+--
+ALTER TABLE `vrp_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `vrp_characters`
+--
+ALTER TABLE `vrp_characters`
+  ADD CONSTRAINT `fk_characters_users` FOREIGN KEY (`user_id`) REFERENCES `vrp_users` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `vrp_character_business`
+--
+ALTER TABLE `vrp_character_business`
+  ADD CONSTRAINT `fk_character_business_characters` FOREIGN KEY (`character_id`) REFERENCES `vrp_characters` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `vrp_character_data`
+--
+ALTER TABLE `vrp_character_data`
+  ADD CONSTRAINT `fk_character_data_characters` FOREIGN KEY (`character_id`) REFERENCES `vrp_characters` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `vrp_character_homes`
+--
+ALTER TABLE `vrp_character_homes`
+  ADD CONSTRAINT `fk_character_homes_characters` FOREIGN KEY (`character_id`) REFERENCES `vrp_characters` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `vrp_character_identities`
+--
+ALTER TABLE `vrp_character_identities`
+  ADD CONSTRAINT `fk_character_identities_characters` FOREIGN KEY (`character_id`) REFERENCES `vrp_characters` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `vrp_user_data`
+--
+ALTER TABLE `vrp_user_data`
+  ADD CONSTRAINT `fk_user_data_users` FOREIGN KEY (`user_id`) REFERENCES `vrp_users` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `vrp_user_ids`
+--
+ALTER TABLE `vrp_user_ids`
+  ADD CONSTRAINT `fk_user_ids_users` FOREIGN KEY (`user_id`) REFERENCES `vrp_users` (`id`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
